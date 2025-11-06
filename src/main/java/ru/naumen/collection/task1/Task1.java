@@ -1,5 +1,8 @@
 package ru.naumen.collection.task1;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Дано:
  * <pre>
@@ -40,6 +43,16 @@ public class Task1
     }
 
     /**
+     * Выбрал коллекцию HashMap, поскольку каждый билет является уникальным,
+     * а значит его удобно хранить в виде ключа в словаре,
+     * и в качесте значения - набор товаров.
+     * Сложность алгоритма по нахождению набора товаров O(1) за счет
+     * использования встроенной функции hashCode класса Long,
+     * которая может гарантировать указанную выше алгоритмическую сложность.
+     */
+    private final Map<Ticket, Goods> ticketGoodsMap = new HashMap<>();
+
+    /**
      * Получить товары по билету
      * <p>Сложность алгоритма O(1)</p>
      *
@@ -47,7 +60,6 @@ public class Task1
      * <p>Достаточно их определить только для id, т.к. он уникален</p>
      */
     public Goods getGoods(Ticket ticket) {
-        // TODO реализовать
-        return null;
+        return ticketGoodsMap.get(ticket);
     }
 }
